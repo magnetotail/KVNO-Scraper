@@ -4,7 +4,7 @@ Dieses Programm soll Leuten die z.B. nach einem Therapieplatz über die kvno.de 
 Das Programm generiert aus dem ersten Link der Ergebnisliste automatisch eine CSV Datei mit Informationen über die einzelnen Praxen, welche dann in Excel geöffnet werden kann.
 
 ## Voraussetzungen
-- Java 16 oder höher
+- Java 8 oder höher
 
 ## Bedienung
 - Aus Release Programm runterladen
