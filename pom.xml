@@ -11,7 +11,7 @@
 
     <groupId>de.foospace</groupId>
     <artifactId>KVNO-Scraper</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <build>
         <plugins>
             <plugin>
@@ -68,12 +68,12 @@
                                 <jdkPreference>preferJre</jdkPreference>
                             </jre>
                             <versionInfo>
-                                <fileVersion>1.1.0.0</fileVersion>
+                                <fileVersion>${project.version}.0.0</fileVersion>
                                 <txtFileVersion>${project.version}</txtFileVersion>
                                 <fileDescription>${project.name}</fileDescription>
                                 <copyright>2022 foospace.de</copyright>
-                                <productVersion>1.1.0.0</productVersion>
-                                <txtProductVersion>1.1.0.0</txtProductVersion>
+                                <productVersion>${project.version}.0.0</productVersion>
+                                <txtProductVersion>${project.version}.0.0</txtProductVersion>
                                 <productName>${project.name}</productName>
                                 <companyName>foospace.de</companyName>
                                 <internalName>kvnoscraper</internalName>
