@@ -165,15 +165,47 @@ public class Main {
     }
 
 
-    public record Therapist(String name, String address, String zip, String city, String phone, String email,
-                            ContactTimes contactTimes) {
+    private static class Therapist {
+        private String name;
+        private String address;
+        private String zip;
+        private String city;
+        private String phone;
+        private String email;
+        private ContactTimes contactTimes;
+
+        public Therapist(String name, String address, String zip, String city, String phone, String email, ContactTimes contactTimes) {
+            this.name = name;
+            this.address = address;
+            this.zip = zip;
+            this.city = city;
+            this.phone = phone;
+            this.email = email;
+            this.contactTimes = contactTimes;
+        }
+
         @Override
         public String toString() {
             return name + ";" + address + ";" + zip + ";" + city + ";" + phone + ";" + email + ";" + contactTimes.toString();
         }
     }
 
-    public record ContactTimes(String monday, String tuesday, String wednesday, String thursday, String friday) {
+
+    private static class ContactTimes{
+        private String monday;
+        private String tuesday;
+        private String wednesday;
+        private String thursday;
+        private String friday;
+
+        public ContactTimes(String monday, String tuesday, String wednesday, String thursday, String friday) {
+            this.monday = monday;
+            this.tuesday = tuesday;
+            this.wednesday = wednesday;
+            this.thursday = thursday;
+            this.friday = friday;
+        }
+
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
