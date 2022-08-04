@@ -1,5 +1,6 @@
 package de.foospace;
 
+import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -24,9 +25,14 @@ public class Main {
     static Pattern zipAndCityPattern = Pattern.compile(".*(\\d{5}) (.*)");
 
     public static void main(String[] args) throws IOException {
+
+        try {
+            UIManager.setLookAndFeel(WindowsLookAndFeel.class.getName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+            System.out.println("No Windows look and feel supported, falling back to metal");
+        }
+
         String url = JOptionPane.showInputDialog("Bitte die URL eingeben.\nDas sammeln der Daten wird etwas dauern.\nSie werden anschließend aufgefordert eine Datei zum speichern anzugeben.");
-
-
 
         List<Therapist> therapists = getTherapistInfos(url);
 
@@ -37,8 +43,12 @@ public class Main {
         chooser.setFileFilter(new FileNameExtensionFilter("CSV Datei", "csv"));
         chooser.setMultiSelectionEnabled(false);
         chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        chooser.showSaveDialog(null);
+        int result = chooser.showSaveDialog(null);
 
+        if(result != JFileChooser.APPROVE_OPTION) {
+            System.out.println("Speichern abgebrochen, beende");
+            System.exit(0);
+        }
 
         File output = chooser.getSelectedFile();
         if (!output.getName().endsWith(".csv")) {
