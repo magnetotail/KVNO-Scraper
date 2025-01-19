@@ -1,6 +1,5 @@
 package de.foospace;
 
-import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -26,11 +25,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        try {
-            UIManager.setLookAndFeel(WindowsLookAndFeel.class.getName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
-            System.out.println("No Windows look and feel supported, falling back to metal");
-        }
 
         String url = JOptionPane.showInputDialog("Bitte die URL eingeben.\nDas sammeln der Daten wird etwas dauern.\nSie werden anschließend aufgefordert eine Datei zum speichern anzugeben.");
 
